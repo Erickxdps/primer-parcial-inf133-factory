@@ -5,26 +5,26 @@ url = "http://localhost:8000/orders"
 headers = {"Content-Type": "application/json"}
 
 physical_order_data = {
-    "client": "Juan Perez",
-    "status": "Pendiente",
-    "payment": "Tarjeta de Crédito",
-    "shipping": 10.0,
-    "products": ["Camiseta", "Pantalón", "Zapatos"],
-    "order_type": "Física"
+    "client":"Juan Perez",
+    "status":"Pendiente",
+    "payment":"Tarjeta de Credito",
+    "shipping":10.0,
+    "products":["Camiseta","Pantalon","Zapatos"],
+    "order_type":"Fisica"
 }
-response = requests.post(url, data=json.dumps(physical_order_data), headers=headers)
+response = requests.post(url,json=physical_order_data)
 print("\nPOST /orders")
 print(response.json())
 
 digital_order_data = {
-    "client": "Maria Rodriguez",
-    "status": "Pendiente",
-    "payment": "PayPal",
-    "code": "ABC123",
-    "expiration": "2022-12-31",
-    "order_type": "Digital"
+   "client":"Maria Rodriguez",
+    "status":"Pendiente",
+    "payment":"Paypal",
+    "code":"ABC123",
+    "expiration":"2022-12-31",
+    "order_type":"Digital"
 }
-response = requests.post(url, data=json.dumps(digital_order_data), headers=headers)
+response=requests.post(url,json=digital_order_data)
 print("\nPOST /orders")
 print(response.json())
 
@@ -49,3 +49,6 @@ delete_url = f"http://localhost:8000/orders/{order_id_to_delete}"
 response = requests.delete(delete_url)
 print("\nDELETE /orders/2")
 print(response.json())
+
+
+
